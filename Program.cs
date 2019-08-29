@@ -14,7 +14,9 @@ namespace Lab1
             //Lab1.Lab12.TernarnaOut();
             //Lab1.Lab13.SwitchTrigger();
             //Lab1.Lab14.NumTest();
-            Lab1.Lab15.SumOut();
+            //Lab1.Lab15.SumOut();
+            //Lab1.Lab16.FactorialRealization();
+            Lab1.Lab17.QuadratOut();
             Console.ReadKey(true);
             Console.WriteLine();
         }
@@ -143,6 +145,65 @@ namespace Lab1
             double n = Int32.Parse(Console.ReadLine());
             SumNum(n);
         }
+    }
+    #endregion
+
+    #region Lab1.6
+
+    class Lab16
+    {
+        public static void FactorialRealization()
+        {
+            Console.WriteLine("Enter n and get factorial");
+            double x = System.Int32.Parse(Console.ReadLine());
+            FactorialThrowCycle(x);
+            Console.WriteLine("Factorial throw recursion: {0}", FactorialThrowRecursion(x));
+        }
+
+        static void FactorialThrowCycle(double y1)
+        {
+            double z1 = 1, result = 1;
+            while (z1 <=  y1)
+            {
+                result *= z1;
+                z1++;
+            }
+            Console.WriteLine("Factorial throw cycle: {0}", result);
+        }
+
+        static double? FactorialThrowRecursion(double y1)
+        {
+            if (y1 == 0)
+                return null;
+            if (y1 == 1)
+                return 1;
+            return y1 * FactorialThrowRecursion(y1 - 1);
+            
+        }
+    }
+    #endregion
+
+    #region Lab1.7
+    class Lab17
+    {
+        static void Solve(double a, double b, double c,
+                             out double x1, out double x2)
+        {
+            double d = b * b - 4 * a * c;
+            x1 = (-b - Math.Sqrt(d)) / (2 * a);
+            x2 = (-b + Math.Sqrt(d)) / (2 * a);
+        }
+
+        public static void QuadratOut()
+        {
+            double x1, x2;
+            double a = 1;
+            double b = 1;
+            double c = 2;
+            Solve(a, b, c, out x1, out x2);
+            Console.WriteLine("x1 = {0} x2 = {1}", x1, x2);
+        }
+
     }
     #endregion
 }
