@@ -13,6 +13,8 @@ namespace Lab1
             //Lab1.Lab11.Lab11_Input();
             //Lab1.Lab12.TernarnaOut();
             //Lab1.Lab13.SwitchTrigger();
+            //Lab1.Lab14.NumTest();
+            Lab1.Lab15.SumOut();
             Console.ReadKey(true);
             Console.WriteLine();
         }
@@ -102,16 +104,45 @@ namespace Lab1
 
     #region Lab1.4
 
+    //Работа с null совместимостью
     class Lab14
     {
-        public static void NullTest()
+        public static void NumTest()
         {
+            Console.WriteLine();
             try
             {
-                Console.WriteLine("Enter value: ");
-                private double x = Int32.Parse(Console.ReadLine());
+                double x = Int32.Parse(Console.ReadLine());
+            }
+            catch
+            {
+                Console.WriteLine("Error!");
+            }
+
+        }
     }
-}
+    #endregion
+
+    #region Lab1.5
+
+    class Lab15
+    {
+        static void SumNum(double m)
+        {
+            double sum = 1;
+            for (double i = 2; i <= m; i*=i)
+            {
+                sum += 1/i;
+            }
+            Console.WriteLine("Result: {0}", sum);
+        }
+
+        public static void SumOut()
+        {
+            Console.WriteLine("Sum of y = 1 + 1/2 + 1/4 + ... + 1/sqr(n)\nEnter n");
+            double n = Int32.Parse(Console.ReadLine());
+            SumNum(n);
+        }
     }
     #endregion
 }
